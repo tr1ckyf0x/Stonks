@@ -8,14 +8,28 @@
 
 import WidgetKit
 import SwiftUI
+import CoinMarketProvider
+import Moya
+import STNetworking
+import KeychainService
 
 @main
 struct StonksWidget: Widget {
     let kind: String = "widget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            StonksWidgetEntryView(entry: entry)
+        let moyaProvider = MoyaProvider<CoinMarketCapRoute>()
+        let coinMarketProvider = CoinMarketProvider(
+            moyaProvider: moyaProvider
+        )
+        let keychainService = KeychainService()
+
+        let interactor = StonksWidgetInteractor(
+            coinMarketProvider: coinMarketProvider,
+            keychainService: keychainService
+        )
+        return StaticConfiguration(kind: kind, provider: Provider(stonksWidgetInteractor: interactor)) { entry in
+            StonksWidgetView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")

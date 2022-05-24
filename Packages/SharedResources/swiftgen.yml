@@ -1,0 +1,10 @@
+xcassets:
+  inputs:
+    - Sources/SharedResources/Resources/Assets.xcassets
+    - Sources/SharedResources/Resources/Colors.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+        publicAccess: true
+      output: Sources/SharedResources/Generated/XCAssets+Generated.swift

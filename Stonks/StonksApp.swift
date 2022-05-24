@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import KeychainService
 
 @main
 struct StonksApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(
+                viewModel: ContentView.ViewModel(
+                    keychainService: KeychainService()
+                )
+            )
         }
     }
 }

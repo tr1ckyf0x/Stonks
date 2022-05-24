@@ -1,0 +1,3 @@
+"App.APIToken.title" = "CoinMarketCap API Token";
+"App.APIToken.placeholder" = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+"App.APIToken.save" = "Save";

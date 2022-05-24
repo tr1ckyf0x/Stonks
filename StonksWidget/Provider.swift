@@ -9,31 +9,55 @@
 import WidgetKit
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+
+    private let interactor: StonksWidgetInteractorProtocol
+
+    init(stonksWidgetInteractor: StonksWidgetInteractorProtocol) {
+        self.interactor = stonksWidgetInteractor
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
+    typealias Entry = StonksEntry
+
+    func placeholder(in context: Context) -> Entry {
+        placeholderEntry
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
-        var entries: [SimpleEntry] = []
+    func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
+        completion(placeholderEntry)
+    }
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        Task {
+            let entries: [Entry]
+
+            do {
+                let stonksEntry = try await interactor.fetchStonksEntry()
+                entries = [stonksEntry]
+            } catch {
+                entries = []
+            }
+
+            let policy: TimelineReloadPolicy
+            if let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date()) {
+                policy = .after(nextUpdateDate)
+            } else {
+                policy = .never
+            }
+
+            let timeline = Timeline(entries: entries, policy: policy)
+            completion(timeline)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
+// MARK: - Private methods
+extension Provider {
+    private var placeholderEntry: Entry {
+        StonksEntry(
+            date: Date(),
+            currencyName: L10n.Widget.Currency.placeholder,
+            price: 30000,
+            change: .increase(value: 0)
+        )
+    }
 }

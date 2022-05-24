@@ -1,0 +1,16 @@
+xcassets:
+  inputs:
+    - Resources/Assets.xcassets
+    - Resources/Colors.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: Generated/XCAssets+Generated.swift
+
+strings:
+  inputs:
+    - Resources/Strings/Base.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Generated/Strings+Generated.swift
