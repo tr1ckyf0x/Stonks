@@ -2,6 +2,9 @@
 
 SWIFTGEN_MODULES=(
 	"SharedResources"
+	"MenuPopoverView"
+	"MenuBarResources"
+	"MenuBarView"
 	)
 
 MODULES_FOLDER="./Packages"

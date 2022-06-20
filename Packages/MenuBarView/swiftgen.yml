@@ -1,0 +1,6 @@
+strings:
+  inputs:
+    - Sources/MenuBarView/Resources/Strings/Base.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Sources/MenuBarView/Generated/Strings+Generated.swift

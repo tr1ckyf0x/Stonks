@@ -1,0 +1,8 @@
+strings:
+  inputs:
+    - Sources/MenuBarResources/Resources/Strings/Base.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Sources/MenuBarResources/Generated/Strings+Generated.swift
+      params:
+        publicAccess: true

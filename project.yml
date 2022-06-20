@@ -21,6 +21,11 @@ attributes:
   ORGANIZATIONNAME: "Vladislav Lisianskii"
 
 packages:
+
+  Swinject:
+    url: https://github.com/Swinject/Swinject
+    from: 2.8.0
+
   # Local packages
 
   ## Core
@@ -40,10 +45,35 @@ packages:
     path: Packages/KeychainService
     group: Core
 
+  CoinCapPriceService:
+    path: Packages/CoinCapPriceService
+    group: Core
+
+  UpdateService:
+    path: Packages/UpdateService
+    group: Core
+
   ## UI
   SharedResources:
     path: Packages/SharedResources
     group: UI
+
+  MenuBarResources:
+    path: Packages/MenuBarResources
+    group: UI
+
+  ## Feature
+  StatusItemController:
+    path: Packages/StatusItemController
+    group: Feature
+
+  MenuBarView:
+    path: Packages/MenuBarView
+    group: Feature
+
+  MenuPopoverView:
+    path: Packages/MenuPopoverView
+    group: Feature
 
 targets:
   Stonks:
@@ -81,3 +111,24 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.tr1ckyf0x.stonks.widget
         CODE_SIGN_ENTITLEMENTS: "StonksWidget/StonksWidget.entitlements"
         OTHER_LDFLAGS: $(inherited) -framework WidgetKit -framework SwiftUI
+
+  StonksTracker:
+    platform: macOS
+    type: application
+    sources:
+      - path: "StonksTracker"
+        excludes:
+          - "swiftgen.yml"
+    dependencies:
+      - package: Swinject
+      - package: StatusItemController
+      - package: MenuBarView
+      - package: CoinCapPriceService
+        product: CoinCapPriceService
+      - package: UpdateService
+        product: UpdateService
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tr1ckyf0x.stonks.tracker
+        CODE_SIGN_ENTITLEMENTS: "StonksTracker/Resources/StonksTracker.entitlements"

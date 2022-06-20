@@ -1,0 +1,6 @@
+strings:
+  inputs:
+    - Sources/MenuPopoverView/Resources/Strings/Base.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Sources/MenuPopoverView/Generated/Strings+Generated.swift

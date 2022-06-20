@@ -18,5 +18,9 @@ struct StonksApp: App {
                 )
             )
         }
+        .commands {
+            CommandMenu("Help") {
+            }
+        }
     }
 }
