@@ -15,21 +15,21 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
-        .package(path: "../Models"),
         .package(path: "../CoinCapPriceService"),
         .package(path: "../MenuBarResources"),
-        .package(path: "../CryptoImageFactory")
+        .package(path: "../CryptoImageFactory"),
+        .package(path: "../MenuBarModels")
     ],
     targets: [
         .target(
             name: "MenuBarView",
             dependencies: [
                 "Swinject",
-                "Models",
                 .product(name: "CoinCapPriceService", package: "CoinCapPriceService"),
                 .product(name: "CoinCapPriceServiceMock", package: "CoinCapPriceService"),
                 "MenuBarResources",
-                "CryptoImageFactory"
+                "CryptoImageFactory",
+                "MenuBarModels"
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug))

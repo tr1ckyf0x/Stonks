@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "CryptoImageFactory",
+    platforms: [.macOS(.v12)],
     products: [
         .library(
             name: "CryptoImageFactory",
@@ -13,14 +14,14 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../MenuBarResources"),
-        .package(path: "../Models")
+        .package(path: "../MenuBarModels")
     ],
     targets: [
         .target(
             name: "CryptoImageFactory",
             dependencies: [
                 "MenuBarResources",
-                "Models"
+                "MenuBarModels"
             ]
         )
     ]

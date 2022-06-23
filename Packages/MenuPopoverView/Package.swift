@@ -14,25 +14,25 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../Models"),
         .package(path: "../CoinCapPriceService"),
         .package(path: "../MenuBarResources"),
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
         .package(path: "../UpdateService"),
-        .package(path: "../CryptoImageFactory")
+        .package(path: "../CryptoImageFactory"),
+        .package(path: "../MenuBarModels")
     ],
     targets: [
         .target(
             name: "MenuPopoverView",
             dependencies: [
-                "Models",
                 .product(name: "CoinCapPriceService", package: "CoinCapPriceService"),
                 .product(name: "CoinCapPriceServiceMock", package: "CoinCapPriceService"),
                 "MenuBarResources",
                 "Swinject",
                 .product(name: "UpdateService", package: "UpdateService"),
                 .product(name: "UpdateServiceMock", package: "UpdateService"),
-                "CryptoImageFactory"
+                "CryptoImageFactory",
+                "MenuBarModels"
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug))

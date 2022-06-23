@@ -53,6 +53,10 @@ packages:
     path: Packages/UpdateService
     group: Core
 
+  MenuBarModels:
+    path: Packages/MenuBarModels
+    group: Core
+
   ## UI
   SharedResources:
     path: Packages/SharedResources

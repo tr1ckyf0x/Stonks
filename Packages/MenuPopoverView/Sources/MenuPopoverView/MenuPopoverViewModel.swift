@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 import Combine
-import Models
+import MenuBarModels
 import CoinCapPriceService
 import MenuBarResources
 import UpdateService

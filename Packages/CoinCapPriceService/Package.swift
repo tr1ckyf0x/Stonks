@@ -18,21 +18,21 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
-        .package(path: "../Models")
+        .package(path: "../MenuBarModels")
     ],
     targets: [
         .target(
             name: "CoinCapPriceService",
             dependencies: [
                 "Swinject",
-                "Models"
+                "MenuBarModels"
             ]
         ),
         .target(
             name: "CoinCapPriceServiceMock",
             dependencies: [
                 "CoinCapPriceService",
-                "Models"
+                "MenuBarModels"
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug))

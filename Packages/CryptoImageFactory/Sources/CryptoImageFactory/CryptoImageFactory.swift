@@ -1,4 +1,4 @@
-import Models
+import MenuBarModels
 import MenuBarResources
 
 public enum CryptoImageFactory {

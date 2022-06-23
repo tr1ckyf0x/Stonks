@@ -1,7 +1,7 @@
 #if DEBUG
 import CoinCapPriceService
 import Combine
-import Models
+import MenuBarModels
 
 public final class CoinCapPriceServiceMock {
     public var coinDictionarySubject = CurrentValueSubject<[CoinType: Double], Never>([:])

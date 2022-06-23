@@ -1,5 +1,5 @@
 import SwiftUI
-import Models
+import MenuBarModels
 import CryptoImageFactory
 #if DEBUG
 import CoinCapPriceServiceMock
