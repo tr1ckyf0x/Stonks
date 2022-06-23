@@ -17,7 +17,8 @@ let package = Package(
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
         .package(path: "../Models"),
         .package(path: "../CoinCapPriceService"),
-        .package(path: "../MenuBarResources")
+        .package(path: "../MenuBarResources"),
+        .package(path: "../CryptoImageFactory")
     ],
     targets: [
         .target(
@@ -27,7 +28,8 @@ let package = Package(
                 "Models",
                 .product(name: "CoinCapPriceService", package: "CoinCapPriceService"),
                 .product(name: "CoinCapPriceServiceMock", package: "CoinCapPriceService"),
-                "MenuBarResources"
+                "MenuBarResources",
+                "CryptoImageFactory"
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug))

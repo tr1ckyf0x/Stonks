@@ -72,8 +72,6 @@ extension StatusItemController {
         let menuPopoverView = assembler.resolver.resolve(MenuPopoverView.self)
         popover.contentViewController?.view = NSHostingView(
             rootView: menuPopoverView
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding()
         )
     }
 

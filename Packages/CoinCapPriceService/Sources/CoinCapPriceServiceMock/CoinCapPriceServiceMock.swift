@@ -16,7 +16,7 @@ extension CoinCapPriceServiceMock: CoinCapPriceServiceProtocol {
     public var coinDictionary: [CoinType: Double] { coinDictionarySubject.value }
     
     public var isConnected: Bool {
-        false
+        true
     }
 
     public func connect() {

@@ -6,3 +6,14 @@ strings:
       output: Sources/MenuBarResources/Generated/Strings+Generated.swift
       params:
         publicAccess: true
+
+xcassets:
+  inputs:
+    - Sources/MenuBarResources/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Sources/MenuBarResources/Generated/XCAssets+Generated.swift
+      params:
+        forceProvidesNamespaces: true
+        publicAccess: true
+      

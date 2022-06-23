@@ -62,6 +62,10 @@ packages:
     path: Packages/MenuBarResources
     group: UI
 
+  CryptoImageFactory:
+    path: Packages/CryptoImageFactory
+    group: UI
+
   ## Feature
   StatusItemController:
     path: Packages/StatusItemController

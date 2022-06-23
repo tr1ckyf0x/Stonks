@@ -1,5 +1,6 @@
 import SwiftUI
 import Models
+import CryptoImageFactory
 #if DEBUG
 import CoinCapPriceServiceMock
 import UpdateServiceMock
@@ -23,11 +24,21 @@ public struct MenuPopoverView: View {
             Divider()
             
             Picker(L10n.selectCoin, selection: $viewModel.selectedCoinType) {
-
                 ForEach(viewModel.coinTypes) { (type: CoinType) in
                     HStack {
+                        Image(
+                            nsImage: CryptoImageFactory.asset(
+                                for: type
+                            ).image
+                        )
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 21, height: 16)
+
                         Text(type.description).font(.headline)
+
                         Spacer()
+
                         Text(viewModel.valueText(for: type))
                             .frame(alignment: .trailing)
                             .font(.body)
@@ -36,6 +47,7 @@ public struct MenuPopoverView: View {
                             Image(systemName: "safari")
                         }
                     }
+                    .padding(.leading, 8)
                     .tag(type)
                 }
             }
@@ -53,8 +65,16 @@ public struct MenuPopoverView: View {
                     NSApp.terminate(self)
                 }
             }
-            .padding(.bottom, 8)
         }
+        .padding(
+            .init(
+                top: 8,
+                leading: 16,
+                bottom: 16,
+                trailing: 16
+            )
+        )
+        .frame(minWidth: 300, idealWidth: 300, maxWidth: 400)
         .onChange(of: viewModel.selectedCoinType) { _ in
             viewModel.updateView()
         }
