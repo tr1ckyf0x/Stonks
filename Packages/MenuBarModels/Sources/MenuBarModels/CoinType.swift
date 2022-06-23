@@ -7,11 +7,16 @@ public enum CoinType: String, CaseIterable {
     case litecoin
     case bnb = "binance-coin"
     case monero
+    case luna = "terra-luna"
+    case tron
 
     public var description: String {
         switch self {
         case .bnb:
             return "BNB"
+
+        case .luna:
+            return "Luna"
 
         default:
             return rawValue.capitalized

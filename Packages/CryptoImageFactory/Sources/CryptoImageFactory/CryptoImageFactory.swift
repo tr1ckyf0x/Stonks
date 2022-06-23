@@ -21,6 +21,12 @@ public enum CryptoImageFactory {
 
         case .monero:
             return Asset.Logo.monero
+
+        case .luna:
+            return Asset.Logo.luna
+
+        case .tron:
+            return Asset.Logo.tron
         }
     }
 }
