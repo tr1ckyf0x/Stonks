@@ -12,6 +12,8 @@ import Swinject
 import CoinCapPriceService
 import UpdateService
 import Log
+import FirebaseCore
+import FirebaseAnalytics
 
 @main
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -31,6 +33,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        UserDefaults.standard.register(
+            defaults: ["NSApplicationCrashOnExceptions" : true]
+        )
+
+        FirebaseApp.configure()
+
         coinCapService = assembler.resolver.resolve(CoinCapPriceServiceProtocol.self)
         updateService = assembler.resolver.resolve(UpdateServiceProtocol.self)
         setupCoinCapService()

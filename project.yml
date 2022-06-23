@@ -26,6 +26,10 @@ packages:
     url: https://github.com/Swinject/Swinject
     from: 2.8.0
 
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 9.2.0
+
   # Local packages
 
   ## Core
@@ -131,6 +135,7 @@ targets:
       - path: "StonksTracker"
         excludes:
           - "swiftgen.yml"
+          - "**/*.secret"
     dependencies:
       - package: Swinject
       - package: StatusItemController
@@ -140,6 +145,17 @@ targets:
       - package: UpdateService
         product: UpdateService
       - package: Log
+      - package: Firebase
+        product: FirebaseAnalyticsWithoutAdIdSupport
+      - package: Firebase
+        product: FirebaseCrashlytics
+    postBuildScripts:
+      - name: "Crashlytics"
+        script: |
+                ${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+        inputFiles:
+          - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
 
     settings:
       base:

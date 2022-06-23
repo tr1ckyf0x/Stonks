@@ -195,3 +195,6 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/swift,appcode
+.gitsecret/keys/random_seed
+!*.secret
+StonksTracker/Resources/GoogleService-Info.plist
