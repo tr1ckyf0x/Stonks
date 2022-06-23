@@ -23,6 +23,7 @@ public final class MenuPopoverViewModel: ObservableObject {
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
         formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
         return formatter
     }()
 
