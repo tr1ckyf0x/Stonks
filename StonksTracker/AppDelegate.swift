@@ -11,6 +11,7 @@ import StatusItemController
 import Swinject
 import CoinCapPriceService
 import UpdateService
+import Log
 
 @main
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -22,7 +23,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private lazy var assemblies: [Assembly] = [
         StatusItemControllerAssembly(),
         CoinCapPriceServiceAssembly(),
-        UpdateServiceAssembly()
+        UpdateServiceAssembly(),
+        LogAssembly()
     ]
 
     private lazy var assembler: Assembler = Assembler(assemblies)

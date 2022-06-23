@@ -57,6 +57,10 @@ packages:
     path: Packages/MenuBarModels
     group: Core
 
+  Log:
+    path: Packages/Log
+    group: Core
+
   ## UI
   SharedResources:
     path: Packages/SharedResources
@@ -135,6 +139,7 @@ targets:
         product: CoinCapPriceService
       - package: UpdateService
         product: UpdateService
+      - package: Log
 
     settings:
       base:

@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import Network
 import MenuBarModels
+import Log
 
 final class CoinCapPriceService: NSObject {
 
@@ -13,6 +14,12 @@ final class CoinCapPriceService: NSObject {
 
     private var webSocketTask: URLSessionWebSocketTask?
     private var pingTryCount = 0
+
+    private let log: LogProtocol
+
+    init(log: LogProtocol) {
+        self.log = log
+    }
 
     deinit {
         coinDictionarySubject.send(completion: .finished)
@@ -65,13 +72,13 @@ extension CoinCapPriceService {
             case let .success(message):
                 switch message {
                 case .string(let text):
-                    print("Received text message: \(text)")
+                    self.log.verbose("Received text message: \(text)")
                     if let data = text.data(using: .utf8) {
                         self.onReceiveData(data)
                     }
 
                 case .data(let data):
-                    print("Received binary message: \(data)")
+                    self.log.verbose("Received binary message: \(data)")
                     self.onReceiveData(data)
 
                 default: break
@@ -79,7 +86,7 @@ extension CoinCapPriceService {
                 self.receiveMessage()
 
             case .failure(let error):
-                print("Failed to receive message: \(error.localizedDescription)")
+                self.log.error("Failed to receive message: \(error.localizedDescription)")
             }
         }
     }
@@ -121,10 +128,10 @@ extension CoinCapPriceService {
             }
 
             self.pingTryCount += 1
-            print("Ping: Send Ping \(self.pingTryCount)")
+            self.log.verbose("Ping: Send Ping \(self.pingTryCount)")
             task.sendPing { [weak self] error in
                 if let error = error {
-                    print("Ping failed: \(error.localizedDescription)")
+                    self?.log.error("Ping failed: \(error.localizedDescription)")
                     return
                 }
 

@@ -18,14 +18,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
-        .package(path: "../MenuBarModels")
+        .package(path: "../MenuBarModels"),
+        .package(path: "../Log")
     ],
     targets: [
         .target(
             name: "CoinCapPriceService",
             dependencies: [
                 "Swinject",
-                "MenuBarModels"
+                "MenuBarModels",
+                "Log"
             ]
         ),
         .target(
