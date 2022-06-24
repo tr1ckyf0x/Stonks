@@ -4,6 +4,7 @@ import CryptoImageFactory
 #if DEBUG
 import CoinCapPriceServiceMock
 import UpdateServiceMock
+import AnalyticsServiceMock
 #endif
 
 public struct MenuPopoverView: View {
@@ -89,6 +90,7 @@ struct MenuPopoverView_Previews: PreviewProvider {
     static var previews: some View {
         let coinCapService = CoinCapPriceServiceMock()
         let updateService = UpdateServiceMock()
+        let analyticsService = AnalyticsServiceMock()
         coinCapService.coinDictionarySubject.value = [
             .bitcoin: 500000,
             .ethereum: 30000,
@@ -96,7 +98,8 @@ struct MenuPopoverView_Previews: PreviewProvider {
         ]
         let viewModel = MenuPopoverViewModel(
             coinCapService: coinCapService,
-            updateService: updateService
+            updateService: updateService,
+            analyticsService: analyticsService
         )
         return MenuPopoverView(viewModel: viewModel)
     }

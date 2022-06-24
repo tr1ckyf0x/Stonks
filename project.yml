@@ -65,6 +65,10 @@ packages:
     path: Packages/Log
     group: Core
 
+  AnalyticsService:
+    path: Packages/AnalyticsService
+    group: Core
+
   ## UI
   SharedResources:
     path: Packages/SharedResources
@@ -146,9 +150,10 @@ targets:
         product: UpdateService
       - package: Log
       - package: Firebase
-        product: FirebaseAnalyticsWithoutAdIdSupport
+        product: FirebaseAnalytics
       - package: Firebase
         product: FirebaseCrashlytics
+      - package: AnalyticsService
     postBuildScripts:
       - name: "Crashlytics"
         script: |

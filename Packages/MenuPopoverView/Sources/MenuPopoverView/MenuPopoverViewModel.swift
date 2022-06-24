@@ -5,16 +5,22 @@ import MenuBarModels
 import CoinCapPriceService
 import MenuBarResources
 import UpdateService
+import AnalyticsService
 
 public final class MenuPopoverViewModel: ObservableObject {
 
-    @AppStorage(AppStorageKey.selectedCoinType.rawValue) var selectedCoinType = CoinType.bitcoin
+    @AppStorage(AppStorageKey.selectedCoinType.rawValue) var selectedCoinType = CoinType.bitcoin {
+        didSet {
+            logCoinSelectionEvent()
+        }
+    }
     @Published private(set) var coinTypes: [CoinType]
     @Published private(set) var title: String = .init()
     @Published private(set) var subtitle: String = .init()
 
     private let coinCapService: CoinCapPriceServiceProtocol
     private let updateService: UpdateServiceProtocol
+    private let analyticsService: AnalyticsServiceProtocol
 
     private var subscriptions = Set<AnyCancellable>()
 
@@ -30,11 +36,13 @@ public final class MenuPopoverViewModel: ObservableObject {
     public init(
         coinTypes: [CoinType] = CoinType.allCases,
         coinCapService: CoinCapPriceServiceProtocol,
-        updateService: UpdateServiceProtocol
+        updateService: UpdateServiceProtocol,
+        analyticsService: AnalyticsServiceProtocol
     ) {
         self.coinTypes = coinTypes
         self.coinCapService = coinCapService
         self.updateService = updateService
+        self.analyticsService = analyticsService
     }
 
     func subscribeToService() {
@@ -59,7 +67,18 @@ public final class MenuPopoverViewModel: ObservableObject {
     }
 
     func checkForUpdates() {
+        logPressedCheckForUpdates()
         updateService.checkForUpdates()
     }
-    
+}
+
+// MARK: - Private methods
+extension MenuPopoverViewModel {
+    private func logCoinSelectionEvent() {
+        analyticsService.logEvent(.selectedCoin(selectedCoinType.rawValue))
+    }
+
+    private func logPressedCheckForUpdates() {
+        analyticsService.logEvent(.pressedCheckForUpdates)
+    }
 }

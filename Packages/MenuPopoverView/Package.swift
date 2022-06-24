@@ -19,7 +19,8 @@ let package = Package(
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
         .package(path: "../UpdateService"),
         .package(path: "../CryptoImageFactory"),
-        .package(path: "../MenuBarModels")
+        .package(path: "../MenuBarModels"),
+        .package(path: "../AnalyticsService")
     ],
     targets: [
         .target(
@@ -32,7 +33,9 @@ let package = Package(
                 .product(name: "UpdateService", package: "UpdateService"),
                 .product(name: "UpdateServiceMock", package: "UpdateService"),
                 "CryptoImageFactory",
-                "MenuBarModels"
+                "MenuBarModels",
+                .product(name: "AnalyticsService", package: "AnalyticsService"),
+                .product(name: "AnalyticsServiceMock", package: "AnalyticsService")
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug))

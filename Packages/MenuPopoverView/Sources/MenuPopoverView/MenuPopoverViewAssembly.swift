@@ -1,6 +1,7 @@
 import Swinject
 import CoinCapPriceService
 import UpdateService
+import AnalyticsService
 
 public struct MenuPopoverViewAssembly: Assembly {
 
@@ -15,9 +16,11 @@ public struct MenuPopoverViewAssembly: Assembly {
         container.register(MenuPopoverViewModel.self) { (resolver: Resolver) -> MenuPopoverViewModel in
             let coinCapService = resolver.resolve(CoinCapPriceServiceProtocol.self)!
             let updateService = resolver.resolve(UpdateServiceProtocol.self)!
+            let analyticsService = resolver.resolve(AnalyticsServiceProtocol.self)!
             return MenuPopoverViewModel(
                 coinCapService: coinCapService,
-                updateService: updateService
+                updateService: updateService,
+                analyticsService: analyticsService
             )
         }
     }

@@ -14,6 +14,7 @@ import UpdateService
 import Log
 import FirebaseCore
 import FirebaseAnalytics
+import AnalyticsService
 
 @main
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,12 +22,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItemController: StatusItemControllerInput?
     private var coinCapService: CoinCapPriceServiceProtocol?
     private var updateService: UpdateServiceProtocol?
+    private var analyticsService: AnalyticsServiceProtocol?
 
     private lazy var assemblies: [Assembly] = [
         StatusItemControllerAssembly(),
         CoinCapPriceServiceAssembly(),
         UpdateServiceAssembly(),
-        LogAssembly()
+        LogAssembly(),
+        AnalyticsServiceAssembly()
     ]
 
     private lazy var assembler: Assembler = Assembler(assemblies)
@@ -38,6 +41,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         )
 
         FirebaseApp.configure()
+        analyticsService = assembler.resolver.resolve(AnalyticsServiceProtocol.self)
+
+        analyticsService?.logEvent(.appOpen)
 
         coinCapService = assembler.resolver.resolve(CoinCapPriceServiceProtocol.self)
         updateService = assembler.resolver.resolve(UpdateServiceProtocol.self)
