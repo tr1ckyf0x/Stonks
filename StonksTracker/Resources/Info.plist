@@ -32,6 +32,12 @@
 	<string>https://applications.tr1ckyf0x.com/StonksTracker/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>U0ICSlg5vAtmPoYLZgwMSnWJ1C1oFv07EUx8UXB9Qsk=</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUScheduledCheckInterval</key>
+	<integer>14400</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>GOOGLE_ANALYTICS_REGISTRATION_WITH_AD_NETWORK_ENABLED</key>
 	<false/>
 </dict>
