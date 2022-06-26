@@ -24,7 +24,7 @@ public struct MenuBarView: View {
             .frame(height: 16)
 
             Text(viewModel.value)
-                .font(.title3)
+                .font(.title3.monospacedDigit())
 
         }
         .padding([.leading, .trailing], 8)

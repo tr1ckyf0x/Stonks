@@ -19,7 +19,11 @@ public struct MenuPopoverView: View {
         VStack(spacing: 16) {
             VStack {
                 Text(viewModel.title).font(.largeTitle)
-                Text(viewModel.subtitle).font(.title.bold())
+                Text(viewModel.subtitle)
+                    .font(.title
+                        .bold()
+                        .monospacedDigit()
+                    )
             }
 
             Divider()
@@ -42,7 +46,7 @@ public struct MenuPopoverView: View {
 
                         Text(viewModel.valueText(for: type))
                             .frame(alignment: .trailing)
-                            .font(.body)
+                            .font(.body.monospacedDigit())
 
                         Link(destination: type.url) {
                             Image(systemName: "safari")
