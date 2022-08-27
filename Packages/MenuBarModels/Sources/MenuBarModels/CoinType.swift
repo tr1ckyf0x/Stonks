@@ -7,6 +7,8 @@ public enum CoinType: String, CaseIterable {
     case litecoin
     case bnb = "binance-coin"
     case monero
+    case near = "near-protocol"
+    case twt = "trust-wallet-token"
     case luna = "terra-luna"
     case tron
 
@@ -14,6 +16,12 @@ public enum CoinType: String, CaseIterable {
         switch self {
         case .bnb:
             return "BNB"
+
+        case .near:
+            return "NEAR"
+
+        case .twt:
+            return "TWT"
 
         case .luna:
             return "Luna"
