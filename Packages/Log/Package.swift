@@ -13,8 +13,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", from: "3.7.4"),
-        .package(url: "https://github.com/Swinject/Swinject", from: "2.8.0")
+        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", from: "3.8.0"),
+        .package(url: "https://github.com/Swinject/Swinject", from: "2.8.3")
     ],
     targets: [
         .target(

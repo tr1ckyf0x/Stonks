@@ -24,11 +24,11 @@ packages:
 
   Swinject:
     url: https://github.com/Swinject/Swinject
-    from: 2.8.0
+    from: 2.8.3
 
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    from: 9.2.0
+    from: 10.5.0
 
   # Local packages
 

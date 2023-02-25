@@ -13,7 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.3"),
         .package(path: "../MenuBarView"),
         .package(path: "../MenuPopoverView")
     ],

@@ -17,8 +17,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject", from: "2.8.0"),
-        .package(url: "https://github.com/sparkle-project/Sparkle", from: "2.0.0"),
+        .package(url: "https://github.com/Swinject/Swinject", from: "2.8.3"),
+        .package(url: "https://github.com/sparkle-project/Sparkle", from: "2.3.2"),
     ],
     targets: [
         .target(

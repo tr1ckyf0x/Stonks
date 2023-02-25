@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(path: "../CoinCapPriceService"),
         .package(path: "../MenuBarResources"),
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.3"),
         .package(path: "../UpdateService"),
         .package(path: "../CryptoImageFactory"),
         .package(path: "../MenuBarModels"),

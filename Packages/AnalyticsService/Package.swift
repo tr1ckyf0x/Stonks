@@ -17,8 +17,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "9.2.0")
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.3"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.5.0")
     ],
     targets: [
         .target(
