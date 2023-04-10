@@ -6,6 +6,7 @@ public enum CoinType: String, CaseIterable {
     case solana
     case litecoin
     case bnb = "binance-coin"
+    case polygon
     case monero
     case near = "near-protocol"
     case twt = "trust-wallet-token"

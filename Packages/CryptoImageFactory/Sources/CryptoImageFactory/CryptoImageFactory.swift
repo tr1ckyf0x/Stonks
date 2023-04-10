@@ -19,6 +19,9 @@ public enum CryptoImageFactory {
         case .bnb:
             return Asset.Logo.bnb
 
+        case .polygon:
+            return Asset.Logo.polygon
+
         case .monero:
             return Asset.Logo.monero
 
