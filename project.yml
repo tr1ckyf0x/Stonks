@@ -28,7 +28,7 @@ packages:
 
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    from: 10.5.0
+    from: 10.7.0
 
   # Local packages
 
