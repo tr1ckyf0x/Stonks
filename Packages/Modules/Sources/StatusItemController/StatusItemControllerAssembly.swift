@@ -1,5 +1,5 @@
-import Swinject
 import AppKit
+import Swinject
 
 public struct StatusItemControllerAssembly: Assembly {
 
@@ -7,7 +7,7 @@ public struct StatusItemControllerAssembly: Assembly {
 
     public func assemble(container: Container) {
         container.register(StatusItemController.self) { (
-            resolver: Resolver,
+            _: Resolver,
             statusBar: NSStatusBar,
             assembler: Assembler
         ) -> StatusItemController in

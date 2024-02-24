@@ -1,6 +1,6 @@
 import AppKit
-import SwiftUI
 import MenuBar
+import SwiftUI
 import Swinject
 
 final class StatusItemController: NSObject {
@@ -32,7 +32,6 @@ final class StatusItemController: NSObject {
         createStatusBarItem(in: statusBar)
         setupPopover()
     }
-    
 }
 
 // MARK: - StatusItemControllerInput

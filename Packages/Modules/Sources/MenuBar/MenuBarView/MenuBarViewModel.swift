@@ -1,7 +1,7 @@
-import Combine
-import SwiftUI
-import ProtocolsAndModels
 import CoinCapPriceService
+import Combine
+import ProtocolsAndModels
+import SwiftUI
 
 public final class MenuBarViewModel: ObservableObject {
 
@@ -21,11 +21,11 @@ public final class MenuBarViewModel: ObservableObject {
     }()
 
     public init(
-        value: String = .init(),
-        service: CoinCapPriceServiceProtocol
+        service: CoinCapPriceServiceProtocol,
+        value: String = .init()
     ) {
-        self.value = value
         self.service = service
+        self.value = value
     }
 
     func subscribeToService() {

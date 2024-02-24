@@ -1,5 +1,5 @@
-import Swinject
 import Log
+import Swinject
 
 public struct CoinCapPriceServiceAssembly: Assembly {
 

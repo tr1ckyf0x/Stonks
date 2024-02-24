@@ -1,9 +1,9 @@
-import SwiftUI
+import AnalyticsService
+import CoinCapPriceService
 import Combine
 import ProtocolsAndModels
-import CoinCapPriceService
+import SwiftUI
 import UpdateService
-import AnalyticsService
 
 public final class MenuPopoverViewModel: ObservableObject {
 
@@ -32,15 +32,15 @@ public final class MenuPopoverViewModel: ObservableObject {
     }()
 
     public init(
-        coinTypes: [CoinType] = CoinType.allCases,
         coinCapService: CoinCapPriceServiceProtocol,
         updateService: UpdateServiceProtocol,
-        analyticsService: AnalyticsServiceProtocol
+        analyticsService: AnalyticsServiceProtocol,
+        coinTypes: [CoinType] = CoinType.allCases
     ) {
-        self.coinTypes = coinTypes
         self.coinCapService = coinCapService
         self.updateService = updateService
         self.analyticsService = analyticsService
+        self.coinTypes = coinTypes
     }
 
     func subscribeToService() {

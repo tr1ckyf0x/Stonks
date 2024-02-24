@@ -80,7 +80,7 @@ let package = Package(
             name: "StatusItemController",
             dependencies: [
                 "Swinject",
-                "MenuBar",
+                "MenuBar"
             ]
         ),
         .target(

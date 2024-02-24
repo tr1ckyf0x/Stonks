@@ -1,8 +1,8 @@
-import Foundation
 import Combine
+import Foundation
+import Log
 import Network
 import ProtocolsAndModels
-import Log
 
 final class CoinCapPriceService: NSObject {
 
@@ -32,7 +32,7 @@ extension CoinCapPriceService: CoinCapPriceServiceProtocol {
     var coinDictionary: [CoinType: Double] { coinDictionarySubject.value }
 
     var isConnected: Bool { connectionStateSubject.value }
-    
+
     func connect() {
         let coins = CoinType.allCases
             .map(\.rawValue)
@@ -162,8 +162,8 @@ extension CoinCapPriceService: URLSessionWebSocketDelegate {
     func urlSession(
         _ session: URLSession,
         webSocketTask: URLSessionWebSocketTask,
-        didOpenWithProtocol protocol: String?)
-    {
+        didOpenWithProtocol protocol: String?
+    ) {
         connectionStateSubject.send(true)
     }
 

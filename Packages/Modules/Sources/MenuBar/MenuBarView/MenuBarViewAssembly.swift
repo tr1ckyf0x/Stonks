@@ -1,6 +1,6 @@
-import Swinject
-import SwiftUI
 import CoinCapPriceService
+import SwiftUI
+import Swinject
 
 public struct MenuBarViewAssembly: Assembly {
     public init() { }

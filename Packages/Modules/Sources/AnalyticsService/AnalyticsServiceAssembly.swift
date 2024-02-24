@@ -5,8 +5,8 @@ public struct AnalyticsServiceAssembly: Assembly {
     public init() { }
 
     public func assemble(container: Container) {
-        container.register(AnalyticsService.self) { (resolver: Resolver) -> AnalyticsService in
-            return AnalyticsService()
+        container.register(AnalyticsService.self) { _ -> AnalyticsService in
+            AnalyticsService()
         }
         .implements(AnalyticsServiceProtocol.self)
         .inObjectScope(.container)

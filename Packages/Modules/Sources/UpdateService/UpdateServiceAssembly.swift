@@ -1,5 +1,5 @@
-import Swinject
 import Sparkle
+import Swinject
 
 public struct UpdateServiceAssembly: Assembly {
 

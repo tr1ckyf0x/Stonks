@@ -1,7 +1,7 @@
-import Swinject
-import CoinCapPriceService
-import UpdateService
 import AnalyticsService
+import CoinCapPriceService
+import Swinject
+import UpdateService
 
 public struct MenuPopoverViewAssembly: Assembly {
 

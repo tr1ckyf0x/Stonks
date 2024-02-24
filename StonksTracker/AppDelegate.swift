@@ -6,15 +6,15 @@
 //  Copyright © 2022 Vladislav Lisianskii. All rights reserved.
 //
 
+import AnalyticsService
 import AppKit
+import CoinCapPriceService
+import FirebaseAnalytics
+import FirebaseCore
+import Log
 import StatusItemController
 import Swinject
-import CoinCapPriceService
 import UpdateService
-import Log
-import FirebaseCore
-import FirebaseAnalytics
-import AnalyticsService
 
 @main
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -32,12 +32,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         AnalyticsServiceAssembly()
     ]
 
-    private lazy var assembler: Assembler = Assembler(assemblies)
-
+    private lazy var assembler = Assembler(assemblies)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         UserDefaults.standard.register(
-            defaults: ["NSApplicationCrashOnExceptions" : true]
+            defaults: ["NSApplicationCrashOnExceptions": true]
         )
 
         FirebaseApp.configure()
@@ -63,7 +62,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
+        true
     }
 }
 
