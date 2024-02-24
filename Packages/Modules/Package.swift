@@ -21,8 +21,8 @@ let package = Package(
             targets: ["Log"]
         ),
         .library(
-            name: "MenuBarModels",
-            targets: ["MenuBarModels"]
+            name: "ProtocolsAndModels",
+            targets: ["ProtocolsAndModels"]
         ),
         .library(
             name: "UpdateService",
@@ -55,7 +55,7 @@ let package = Package(
             name: "CoinCapPriceService",
             dependencies: [
                 "Swinject",
-                "MenuBarModels",
+                "ProtocolsAndModels",
                 "Log"
             ]
         ),
@@ -67,7 +67,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "MenuBarModels"
+            name: "ProtocolsAndModels"
         ),
         .target(
             name: "UpdateService",
@@ -88,7 +88,7 @@ let package = Package(
             dependencies: [
                 "Swinject",
                 "CoinCapPriceService",
-                "MenuBarModels",
+                "ProtocolsAndModels",
                 "UpdateService",
                 "AnalyticsService"
             ]

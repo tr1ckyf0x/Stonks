@@ -1,4 +1,4 @@
-import MenuBarModels
+import ProtocolsAndModels
 
 enum CryptoImageFactory {
     static func asset(for coinType: CoinType) -> ImageResource {

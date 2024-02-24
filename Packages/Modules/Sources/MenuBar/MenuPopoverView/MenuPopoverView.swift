@@ -1,5 +1,5 @@
 import SwiftUI
-import MenuBarModels
+import ProtocolsAndModels
 
 public struct MenuPopoverView: View {
 

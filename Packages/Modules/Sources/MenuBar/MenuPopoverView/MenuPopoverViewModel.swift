@@ -1,6 +1,6 @@
 import SwiftUI
 import Combine
-import MenuBarModels
+import ProtocolsAndModels
 import CoinCapPriceService
 import UpdateService
 import AnalyticsService

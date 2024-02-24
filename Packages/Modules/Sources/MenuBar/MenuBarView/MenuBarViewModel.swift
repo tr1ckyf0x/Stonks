@@ -1,6 +1,6 @@
 import Combine
 import SwiftUI
-import MenuBarModels
+import ProtocolsAndModels
 import CoinCapPriceService
 
 public final class MenuBarViewModel: ObservableObject {

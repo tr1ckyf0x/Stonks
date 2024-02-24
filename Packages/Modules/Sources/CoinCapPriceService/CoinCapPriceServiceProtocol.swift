@@ -1,5 +1,5 @@
 import Combine
-import MenuBarModels
+import ProtocolsAndModels
 
 public protocol CoinCapPriceServiceProtocol {
     var coinDictionarySubject: CurrentValueSubject<[CoinType: Double], Never> { get }

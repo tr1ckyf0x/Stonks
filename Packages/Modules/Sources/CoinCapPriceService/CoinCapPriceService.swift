@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 import Network
-import MenuBarModels
+import ProtocolsAndModels
 import Log
 
 final class CoinCapPriceService: NSObject {

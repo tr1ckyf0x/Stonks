@@ -5,7 +5,7 @@
 //  Created by Vladislav Lisianskii on 24.02.2024.
 //
 
-import MenuBarModels
+import ProtocolsAndModels
 import SwiftUI
 
 struct MenuBarContentView: View {
