@@ -41,7 +41,7 @@ public final class MenuBarViewModel: ObservableObject {
     func updateView() {
 
         guard service.isConnected else {
-            value = L10n.offline
+            value = String(localized: "Offline")
             return
         }
 

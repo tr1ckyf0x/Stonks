@@ -31,7 +31,7 @@ struct MenuPopoverContentView: View {
 
             Divider()
 
-            Picker(L10n.selectCoin, selection: $selectedCoinType) {
+            Picker("Select Coin", selection: $selectedCoinType) {
                 ForEach(coinTypes) { (type: CoinType) in
                     HStack {
                         Image(
@@ -65,11 +65,11 @@ struct MenuPopoverContentView: View {
             Divider()
 
             HStack {
-                Button(L10n.checkForUpdates) {
+                Button("Check for updates") {
                     checkUpdatesAction()
                 }
 
-                Button(L10n.quit) {
+                Button("Quit") {
                     NSApp.terminate(self)
                 }
             }
