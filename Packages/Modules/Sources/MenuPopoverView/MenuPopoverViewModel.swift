@@ -72,7 +72,8 @@ public final class MenuPopoverViewModel: ObservableObject {
     }
 }
 
-// MARK: - Private methods
+// MARK: - Private
+
 extension MenuPopoverViewModel {
     private func logCoinSelectionEvent() {
         analyticsService.logEvent(.selectedCoin(selectedCoinType.rawValue))

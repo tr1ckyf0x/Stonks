@@ -57,6 +57,7 @@ targets:
           - AnalyticsService
           - StatusItemController
           - MenuBarView
+          - MenuPopoverView
           - CoinCapPriceService
           - UpdateService
           - Log
