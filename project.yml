@@ -60,15 +60,18 @@ targets:
           - CoinCapPriceService
           - UpdateService
           - Log
-    postBuildScripts:
-      - name: "Crashlytics"
-        script: |
-                ${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
-        inputFiles:
-          - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}
-          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
-
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.tr1ckyf0x.stonks.tracker
         CODE_SIGN_ENTITLEMENTS: "StonksTracker/Resources/StonksTracker.entitlements"
+    postBuildScripts:
+      - name: "Crashlytics"
+        basedOnDependencyAnalysis: false
+        script: |
+                ${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+        inputFiles:
+          - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}
+          - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}
+          - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist
+          - $(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist
+          - $(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)
