@@ -1,0 +1,3 @@
+executables:
+  genesis: "mint run genesis"
+  swiftgen: "mint run swiftgen"
