@@ -1,0 +1,28 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Check for updates" : {
+
+    },
+    "Offline" : {
+
+    },
+    "Quit" : {
+
+    },
+    "Select Coin" : {
+
+    },
+    "Updating" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updating..."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

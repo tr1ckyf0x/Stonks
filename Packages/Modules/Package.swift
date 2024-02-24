@@ -25,32 +25,16 @@ let package = Package(
             targets: ["MenuBarModels"]
         ),
         .library(
-            name: "Models",
-            targets: ["Models"]
-        ),
-        .library(
             name: "UpdateService",
             targets: ["UpdateService"]
-        ),
-        .library(
-            name: "MenuBarView",
-            targets: ["MenuBarView"]
-        ),
-        .library(
-            name: "MenuPopoverView",
-            targets: ["MenuPopoverView"]
         ),
         .library(
             name: "StatusItemController",
             targets: ["StatusItemController"]
         ),
         .library(
-            name: "CryptoImageFactory",
-            targets: ["CryptoImageFactory"]
-        ),
-        .library(
-            name: "MenuBarResources",
-            targets: ["MenuBarResources"]
+            name: "MenuBar",
+            targets: ["MenuBar"]
         )
     ],
     dependencies: [
@@ -86,9 +70,6 @@ let package = Package(
             name: "MenuBarModels"
         ),
         .target(
-            name: "Models"
-        ),
-        .target(
             name: "UpdateService",
             dependencies: [
                 "Swinject",
@@ -96,44 +77,21 @@ let package = Package(
             ]
         ),
         .target(
-            name: "MenuBarView",
-            dependencies: [
-                "Swinject",
-                "CoinCapPriceService",
-                "MenuBarResources",
-                "CryptoImageFactory",
-                "MenuBarModels"
-            ]
-        ),
-        .target(
-            name: "MenuPopoverView",
-            dependencies: [
-                "CoinCapPriceService",
-                "MenuBarResources",
-                "Swinject",
-                "UpdateService",
-                "CryptoImageFactory",
-                "MenuBarModels",
-                "AnalyticsService"
-            ]
-        ),
-        .target(
             name: "StatusItemController",
             dependencies: [
                 "Swinject",
-                "MenuBarView",
-                "MenuPopoverView"
+                "MenuBar",
             ]
         ),
         .target(
-            name: "CryptoImageFactory",
+            name: "MenuBar",
             dependencies: [
-                "MenuBarResources",
-                "MenuBarModels"
+                "Swinject",
+                "CoinCapPriceService",
+                "MenuBarModels",
+                "UpdateService",
+                "AnalyticsService"
             ]
-        ),
-        .target(
-            name: "MenuBarResources"
-        ),
+        )
     ]
 )

@@ -1,7 +1,6 @@
 import AppKit
 import SwiftUI
-import MenuBarView
-import MenuPopoverView
+import MenuBar
 import Swinject
 
 final class StatusItemController: NSObject {

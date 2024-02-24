@@ -56,8 +56,7 @@ targets:
         products:
           - AnalyticsService
           - StatusItemController
-          - MenuBarView
-          - MenuPopoverView
+          - MenuBar
           - CoinCapPriceService
           - UpdateService
           - Log
