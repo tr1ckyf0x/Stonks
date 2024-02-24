@@ -19,23 +19,23 @@ extension Log {
 
 // MARK: - LogProtocol
 extension Log: LogProtocol {
-    func verbose(_ message: String) {
+    func verbose(_ message: DDLogMessageFormat) {
         DDLogVerbose(message)
     }
 
-    func info(_ message: String) {
+    func info(_ message: DDLogMessageFormat) {
         DDLogInfo(message)
     }
 
-    func warn(_ message: String) {
+    func warn(_ message: DDLogMessageFormat) {
         DDLogWarn(message)
     }
 
-    func debug(_ message: String) {
+    func debug(_ message: DDLogMessageFormat) {
         DDLogDebug(message)
     }
 
-    func error(_ message: String) {
+    func error(_ message: DDLogMessageFormat) {
         DDLogError(message)
     }
 }
