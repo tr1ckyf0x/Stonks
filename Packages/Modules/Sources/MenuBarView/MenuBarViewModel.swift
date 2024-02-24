@@ -7,10 +7,8 @@ import MenuBarResources
 
 public final class MenuBarViewModel: ObservableObject {
 
-    @Published private(set) var name: String
-    @Published private(set) var value: String
-    @Published private(set) var color: Color
-    @AppStorage(AppStorageKey.selectedCoinType.rawValue) private(set) var selectedCoinType = CoinType.bitcoin
+    @Published var value: String
+    @AppStorage(AppStorageKey.selectedCoinType.rawValue) var selectedCoinType = CoinType.bitcoin
 
     private let service: CoinCapPriceServiceProtocol
     private var subscriptions = Set<AnyCancellable>()
@@ -25,14 +23,10 @@ public final class MenuBarViewModel: ObservableObject {
     }()
 
     public init(
-        name: String = .init(),
         value: String = .init(),
-        color: Color = .green,
         service: CoinCapPriceServiceProtocol
     ) {
-        self.name = name
         self.value = value
-        self.color = color
         self.service = service
     }
 
@@ -45,7 +39,6 @@ public final class MenuBarViewModel: ObservableObject {
     }
 
     func updateView() {
-        self.name = selectedCoinType.description
 
         guard service.isConnected else {
             value = L10n.offline
@@ -57,8 +50,6 @@ public final class MenuBarViewModel: ObservableObject {
             .flatMap(currencyFormatter.string(from:))
 
         self.value = value ?? MenuBarResources.L10n.updating
-
-        self.color = self.service.isConnected ? .green : .red
     }
 
 }

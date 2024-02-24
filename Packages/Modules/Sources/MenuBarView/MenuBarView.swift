@@ -10,42 +10,15 @@ public struct MenuBarView: View {
     }
 
     public var body: some View {
-        HStack(spacing: 8) {
-
-            Image(
-                nsImage: CryptoImageFactory.asset(
-                    for: viewModel.selectedCoinType
-                ).image
-            )
-            .resizable()
-            .frame(height: 16)
-
-            Text(viewModel.value)
-                .font(.title3.monospacedDigit())
-
-        }
-        .padding([.leading, .trailing], 8)
-        .fixedSize()
-        .onChange(of: viewModel.selectedCoinType) { _ in
-            viewModel.updateView()
-        }
+        MenuBarContentView(
+            selectedCoinType: viewModel.selectedCoinType,
+            value: viewModel.value
+        )
         .onAppear {
             viewModel.subscribeToService()
         }
+        .onChange(of: viewModel.selectedCoinType) { _ in
+            viewModel.updateView()
+        }
     }
 }
-
-//#if DEBUG
-//struct MenuBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MenuBarView(
-//            viewModel: .init(
-//                name: "Bitcoin",
-//                value: "$40,000",
-//                color: .green,
-//                service: CoinCapPriceServiceMock()
-//            )
-//        )
-//    }
-//}
-//#endif
