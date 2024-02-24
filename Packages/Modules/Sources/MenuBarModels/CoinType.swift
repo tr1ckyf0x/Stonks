@@ -1,6 +1,6 @@
 import Foundation
 
-public enum CoinType: String, CaseIterable {
+public enum CoinType: String, CaseIterable, Equatable {
     case bitcoin
     case ethereum
     case solana
@@ -10,7 +10,6 @@ public enum CoinType: String, CaseIterable {
     case monero
     case near = "near-protocol"
     case twt = "trust-wallet-token"
-    case luna = "terra-luna"
     case tron
 
     public var description: String {
@@ -24,9 +23,6 @@ public enum CoinType: String, CaseIterable {
         case .twt:
             return "TWT"
 
-        case .luna:
-            return "Luna"
-
         default:
             return rawValue.capitalized
         }
@@ -37,8 +33,4 @@ public enum CoinType: String, CaseIterable {
 
 extension CoinType: Identifiable {
     public var id: Self { self }
-}
-
-extension CoinType: Equatable {
-    
 }

@@ -30,9 +30,6 @@ enum CryptoImageFactory {
         case .twt:
             return .twt
 
-        case .luna:
-            return .luna
-
         case .tron:
             return .tron
         }
