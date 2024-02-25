@@ -14,14 +14,14 @@ struct MenuBarContentView: View {
     let value: String
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack {
             Image(
                 CryptoImageFactory.asset(for: selectedCoinType)
             )
             .resizable()
             .frame(height: 16)
 
-            Text(value)
+            Text(" \(value)")
                 .font(.title3.monospacedDigit())
 
         }

@@ -8,34 +8,33 @@
 import CocoaLumberjackSwift
 import Foundation
 
-final class Log { }
+public final class Log {
+    public init() { }
 
-// MARK: - Internal methods
-extension Log {
-    func initializeLoggers() {
+    public func initializeLoggers() {
         DDLog.add(DDOSLogger.sharedInstance)
     }
 }
 
 // MARK: - LogProtocol
 extension Log: LogProtocol {
-    func verbose(_ message: DDLogMessageFormat) {
+    public func verbose(_ message: DDLogMessageFormat) {
         DDLogVerbose(message)
     }
 
-    func info(_ message: DDLogMessageFormat) {
+    public func info(_ message: DDLogMessageFormat) {
         DDLogInfo(message)
     }
 
-    func warn(_ message: DDLogMessageFormat) {
+    public func warn(_ message: DDLogMessageFormat) {
         DDLogWarn(message)
     }
 
-    func debug(_ message: DDLogMessageFormat) {
+    public func debug(_ message: DDLogMessageFormat) {
         DDLogDebug(message)
     }
 
-    func error(_ message: DDLogMessageFormat) {
+    public func error(_ message: DDLogMessageFormat) {
         DDLogError(message)
     }
 }

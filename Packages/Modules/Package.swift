@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Modules",
     defaultLocalization: "en",
-    platforms: [.macOS(.v12)],
+    platforms: [.macOS(.v13)],
     products: [
         .library(
             name: "AnalyticsService",
@@ -29,16 +29,11 @@ let package = Package(
             targets: ["UpdateService"]
         ),
         .library(
-            name: "StatusItemController",
-            targets: ["StatusItemController"]
-        ),
-        .library(
             name: "MenuBar",
             targets: ["MenuBar"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.4"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.21.0"),
         .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", from: "3.8.4"),
         .package(url: "https://github.com/sparkle-project/Sparkle", from: "2.5.2")
@@ -47,14 +42,12 @@ let package = Package(
         .target(
             name: "AnalyticsService",
             dependencies: [
-                "Swinject",
                 .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk")
             ]
         ),
         .target(
             name: "CoinCapPriceService",
             dependencies: [
-                "Swinject",
                 "ProtocolsAndModels",
                 "Log"
             ]
@@ -62,8 +55,7 @@ let package = Package(
         .target(
             name: "Log",
             dependencies: [
-                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
-                "Swinject"
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack")
             ]
         ),
         .target(
@@ -72,21 +64,12 @@ let package = Package(
         .target(
             name: "UpdateService",
             dependencies: [
-                "Swinject",
                 "Sparkle"
-            ]
-        ),
-        .target(
-            name: "StatusItemController",
-            dependencies: [
-                "Swinject",
-                "MenuBar"
             ]
         ),
         .target(
             name: "MenuBar",
             dependencies: [
-                "Swinject",
                 "CoinCapPriceService",
                 "ProtocolsAndModels",
                 "UpdateService",

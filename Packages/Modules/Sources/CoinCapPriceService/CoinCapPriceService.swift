@@ -4,10 +4,10 @@ import Log
 import Network
 import ProtocolsAndModels
 
-final class CoinCapPriceService: NSObject {
+public final class CoinCapPriceService: NSObject {
 
-    let coinDictionarySubject = CurrentValueSubject<[CoinType: Double], Never>([:])
-    let connectionStateSubject = CurrentValueSubject<Bool, Never>(false)
+    public let coinDictionarySubject = CurrentValueSubject<[CoinType: Double], Never>([:])
+    public let connectionStateSubject = CurrentValueSubject<Bool, Never>(false)
 
     private let session = URLSession(configuration: .default)
     private let monitor = NWPathMonitor()
@@ -17,7 +17,7 @@ final class CoinCapPriceService: NSObject {
 
     private let log: LogProtocol
 
-    init(log: LogProtocol) {
+    public init(log: LogProtocol) {
         self.log = log
     }
 
@@ -29,11 +29,11 @@ final class CoinCapPriceService: NSObject {
 
 // MARK: - CoinCapPriceServiceProtocol
 extension CoinCapPriceService: CoinCapPriceServiceProtocol {
-    var coinDictionary: [CoinType: Double] { coinDictionarySubject.value }
+    public var coinDictionary: [CoinType: Double] { coinDictionarySubject.value }
 
-    var isConnected: Bool { connectionStateSubject.value }
+    public var isConnected: Bool { connectionStateSubject.value }
 
-    func connect() {
+    public func connect() {
         let coins = CoinType.allCases
             .map(\.rawValue)
             .joined(separator: ",")
@@ -48,7 +48,7 @@ extension CoinCapPriceService: CoinCapPriceServiceProtocol {
         self.schedulePing()
     }
 
-    func startMonitorNetworkConnectivity() {
+    public func startMonitorNetworkConnectivity() {
         monitor.pathUpdateHandler = { [weak self] (path: NWPath) in
             guard let self = self else { return }
             if path.status == .satisfied, self.webSocketTask == nil {
@@ -159,7 +159,7 @@ extension CoinCapPriceService {
 // MARK: - URLSessionWebSocketDelegate
 extension CoinCapPriceService: URLSessionWebSocketDelegate {
 
-    func urlSession(
+    public func urlSession(
         _ session: URLSession,
         webSocketTask: URLSessionWebSocketTask,
         didOpenWithProtocol protocol: String?
@@ -167,7 +167,7 @@ extension CoinCapPriceService: URLSessionWebSocketDelegate {
         connectionStateSubject.send(true)
     }
 
-    func urlSession(
+    public func urlSession(
         _ session: URLSession,
         webSocketTask: URLSessionWebSocketTask,
         didCloseWith closeCode: URLSessionWebSocketTask.CloseCode,
