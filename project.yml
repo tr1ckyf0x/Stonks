@@ -68,6 +68,9 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.tr1ckyf0x.stonks.tracker
         CODE_SIGN_ENTITLEMENTS: "StonksTracker/Resources/StonksTracker.entitlements"
+      configs:
+        Release:
+          DEAD_CODE_STRIPPING: YES
     preBuildScripts:
     - name: "Swiftlint"
       basedOnDependencyAnalysis: false
