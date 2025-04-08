@@ -6,13 +6,9 @@
 //  Copyright © 2024 Vladislav Lisianskii. All rights reserved.
 //
 
-import AnalyticsService
-import CoinCapPriceService
 import Foundation
-import Log
 import Sparkle
 import Swinject
-import UpdateService
 
 enum ContainerProvider {
     static var `default`: Container = {

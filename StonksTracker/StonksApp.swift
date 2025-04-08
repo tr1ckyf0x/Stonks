@@ -6,13 +6,9 @@
 //  Copyright © 2024 Vladislav Lisianskii. All rights reserved.
 //
 
-import AnalyticsService
-import CoinCapPriceService
 import FirebaseCore
-import MenuBar
 import SwiftUI
 import Swinject
-import UpdateService
 
 @main
 struct StonksApp: App {
