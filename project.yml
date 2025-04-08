@@ -23,15 +23,15 @@ packages:
 
   Swinject:
     url: https://github.com/Swinject/Swinject
-    from: 2.8.4
+    from: 2.9.1
 
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    from: 10.21.0
+    from: 11.11.0
 
   Sparkle:
     url: https://github.com/sparkle-project/Sparkle
-    from: 2.5.2
+    from: 2.7.0
 
   # Local packages
 
